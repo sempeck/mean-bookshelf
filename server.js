@@ -20,14 +20,14 @@ app.use(bodyParser.json());
 ///////////////////////////////////////
 
 // tutaj będzie przekierowanie do index.html
-// app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public'));
 
 // ROUTERS ////////////////////////////
-app.get('/', booksController.list);
-app.get('/:id', booksController.showOne);
-app.post('/', booksController.create);
-app.put('/:id', booksController.edit);
-app.delete('/:id', booksController.remove);
+app.get('/books', booksController.list);
+app.get('/books/:id', booksController.showOne);
+app.post('/books', booksController.create);
+app.put('/books/:id', booksController.edit);
+app.delete('/books/:id', booksController.remove);
 ///////////////////////////////////////
 
 
