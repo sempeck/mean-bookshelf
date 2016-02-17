@@ -1,0 +1,25 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Author</th>
+      <th>Title</th>
+      <th>Action</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><input class="form-control" ng-model="book.author"></td>
+      <td><input class="form-control" ng-model="book.title"></td>
+      <td><button class="btn btn-primary" ng-click="addBook()">Add</button></td>
+      <td><button class="btn btn-info" ng-click="updateBook()">Update</button></td>
+      <td>{{booklist}}</td>
+    </tr>
+    <tr ng-repeat="book in books">
+      <td>{{book.author}}</td>
+      <td>{{book.title}}</td>
+      <td><button class="btn btn-warning" ng-click="editBook(book._id)">Edit</button></td>
+      <td><button class="btn btn-danger" ng-click="deleteBook(book._id)">Delete</button></td>
+    </tr>
+  </tbody>
+</table>

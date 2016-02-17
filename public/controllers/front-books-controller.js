@@ -1,44 +1,51 @@
-var bookshelf = angular.module('Bookshelf', []);
+var bookshelf = angular.module('Bookshelf');
 
-bookshelf.controller('listController', ['$scope', '$http', 
-  function($scope, $http) {
+bookshelf.controller('listController', function ($scope, Book) {
+      $scope.books = Book.query();
+      console.log($scope.books)
 
-    var refresh = function() {    
-      $http.get('/books').success(function (res) {
-          $scope.booklist = res;
-          $scope.book = "";
-      });
-    };
+});
 
-    refresh();
+// bookshelf.controller('listController', ['$scope', '$http', 
+//   function($scope, $http) {
 
-    $scope.addBook = function() {
-      $http.post('/books', $scope.book).success(function (res) {
-        refresh();
-      });
-    };
+//     var refresh = function() {    
+//       $http.get('/books').success(function (res) {
+//           $scope.booklist = res;
+//           console.log('booklist: ' + $scope.booklist);
+//           $scope.book = "";
+//       });
+//     };
 
-    $scope.editBook = function(id) {
-      $http.get('/books/' + id).success(function (res) {
-        console.log('Editing...');
-        $scope.book = res;
-      });
-    };
+//     refresh();
 
-    $scope.updateBook = function() {
-     $http.put('/books/' + $scope.book._id, $scope.book).success(function (res) {
-        refresh();
-      });
-    };
+//     $scope.addBook = function() {
+//       $http.post('/books', $scope.book).success(function (res) {
+//         refresh();
+//       });
+//     };
 
-    $scope.deleteBook = function(id) {
-      console.log(id);
-      $http.delete('/books/' + id).success(function (res) {
-        console.log('Deleting...');
-        refresh();
-      });
+//     $scope.editBook = function(id) {
+//       $http.get('/books/' + id).success(function (res) {
+//         console.log('Editing...');
+//         $scope.book = res;
+//       });
+//     };
 
-    };
+//     $scope.updateBook = function() {
+//      $http.put('/books/' + $scope.book._id, $scope.book).success(function (res) {
+//         refresh();
+//       });
+//     };
 
-}]);
+//     $scope.deleteBook = function(id) {
+//       console.log(id);
+//       $http.delete('/books/' + id).success(function (res) {
+//         console.log('Deleting...');
+//         refresh();
+//       });
+
+//     };
+
+// }]);
 

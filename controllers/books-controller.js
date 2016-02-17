@@ -1,4 +1,4 @@
-var Book = require('../models/book');
+var Book = require('../models/Book');
 
 module.exports.create = function (req, res) {
   var book = new Book(req.body);
