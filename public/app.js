@@ -18,7 +18,12 @@ bookshelfApp.config(['$routeProvider',
         templateUrl: 'views/new.html',
         controller: 'newController'
       }).
+      when('/edit/:id', {
+        templateUrl: 'views/edit.html',
+        controller: 'editController'
+      }).
       otherwise({
         redirectTo: '/books'
       });
+
   }]);

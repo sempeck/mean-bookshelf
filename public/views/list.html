@@ -1,14 +1,14 @@
 <table class="table" ng-controller="listController">
   <thead>
-    <tr>
-      <th>Author</th>
-      <th>Title</th>
+    <tr ng-model="orderChoice">
+      <th value="author" ng-click="orderChoice = 'author'">Author</th>
+      <th value="title" ng-click="orderChoice = 'title'">Title</th>
     </tr>
   </thead>
   <tbody>
     <tr><input placeholder="Search" class="form-control" ng-model="query">
     </tr>
-    <tr ng-repeat="book in booklist | filter:query">
+    <tr ng-repeat="book in booklist | filter:query | orderBy:orderChoice">
       <td>{{book.author}}</td>
       <td><a href="#/books/{{book._id}}">{{book.title}}</a></td>
     </tr>

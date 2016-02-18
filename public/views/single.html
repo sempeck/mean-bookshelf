@@ -11,7 +11,9 @@
     <tr>
       <td>{{book.author}}</td>
       <td>{{book.title}}</td>
-      <td><button class="btn btn-warning" ng-click="editBook(book._id)">Edit</button></td>
+      <td>
+        <a href="#/edit/{{book._id}}" class="btn btn-warning" role="button">Edit</a>
+      </td>
       <td><button class="btn btn-danger" ng-click="deleteBook(book._id)">Delete</button></td>
     </tr>
   </tbody>
