@@ -1,6 +1,6 @@
-var bookshelf = angular.module('Bookshelf', []);
+var booksAppControllers = angular.module('booksAppControllers', []);
 
-bookshelf.controller('listController', ['$scope', '$http', 
+booksAppControllers.controller('listController', ['$scope', '$http', 
   function($scope, $http) {
 
     var refresh = function() {    
