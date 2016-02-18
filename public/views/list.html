@@ -15,7 +15,7 @@
       <td><button class="btn btn-info" ng-click="updateBook()">Update</button></td>
     </tr>
     <tr ng-repeat="book in booklist">
-      <td>{{book.author}}</td>
+      <td><a href="#/books/{{book._id}}">{{book.author}}</td>
       <td>{{book.title}}</td>
       <td><button class="btn btn-warning" ng-click="editBook(book._id)">Edit</button></td>
       <td><button class="btn btn-danger" ng-click="deleteBook(book._id)">Delete</button></td>

@@ -12,7 +12,7 @@ bookshelfApp.config(['$routeProvider',
       }).
       when('/books/:id', {
         templateUrl: 'views/single.html',
-        controller: 'listController'
+        controller: 'singleController'
       }).
       otherwise({
         redirectTo: '/books'

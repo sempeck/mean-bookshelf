@@ -42,3 +42,9 @@ booksAppControllers.controller('listController', ['$scope', '$http',
 
 }]);
 
+booksAppControllers.controller('singleController', ['$scope', '$routeParams', '$http',
+  function($scope, $routeParams, $http) {
+      $http.get('books/' + $routeParams.id).success(function(res) {
+      $scope.book = res;
+    });
+}]); 
