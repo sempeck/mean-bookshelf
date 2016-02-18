@@ -3,22 +3,14 @@
     <tr>
       <th>Author</th>
       <th>Title</th>
-      <th>Action</th>
-      <th>&nbsp;</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td><input class="form-control" ng-model="book.author"></td>
-      <td><input class="form-control" ng-model="book.title"></td>
-      <td><button class="btn btn-primary" ng-click="addBook()">Add</button></td>
-      <td><button class="btn btn-info" ng-click="updateBook()">Update</button></td>
+    <tr><input placeholder="Search" class="form-control" ng-model="query">
     </tr>
-    <tr ng-repeat="book in booklist">
-      <td><a href="#/books/{{book._id}}">{{book.author}}</td>
-      <td>{{book.title}}</td>
-      <td><button class="btn btn-warning" ng-click="editBook(book._id)">Edit</button></td>
-      <td><button class="btn btn-danger" ng-click="deleteBook(book._id)">Delete</button></td>
+    <tr ng-repeat="book in booklist | filter:query">
+      <td>{{book.author}}</td>
+      <td><a href="#/books/{{book._id}}">{{book.title}}</a></td>
     </tr>
   </tbody>
 </table>

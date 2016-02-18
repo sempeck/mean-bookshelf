@@ -1,0 +1,19 @@
+<table class="table" ng-controller="newController">
+  <thead>
+    <tr>
+      <th>Author</th>
+      <th>Title</th>
+      <th>Action</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><input class="form-control" ng-model="book.author"></td>
+      <td><input class="form-control" ng-model="book.title"></td>
+      <td><button class="btn btn-primary" ng-click="addBook()">Add</button></td>
+      <td><button class="btn btn-info" ng-click="updateBook()">Update</button></td>
+    </tr>
+ 
+  </tbody>
+</table>

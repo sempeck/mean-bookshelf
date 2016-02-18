@@ -14,6 +14,10 @@ bookshelfApp.config(['$routeProvider',
         templateUrl: 'views/single.html',
         controller: 'singleController'
       }).
+      when('/new', {
+        templateUrl: 'views/new.html',
+        controller: 'newController'
+      }).
       otherwise({
         redirectTo: '/books'
       });

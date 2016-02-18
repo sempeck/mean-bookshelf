@@ -12,12 +12,6 @@ booksAppControllers.controller('listController', ['$scope', '$http',
 
     refresh();
 
-    $scope.addBook = function() {
-      $http.post('/books', $scope.book).success(function (res) {
-        refresh();
-      });
-    };
-
     $scope.editBook = function(id) {
       $http.get('/books/' + id).success(function (res) {
         console.log('Editing...');
@@ -47,4 +41,13 @@ booksAppControllers.controller('singleController', ['$scope', '$routeParams', '$
       $http.get('books/' + $routeParams.id).success(function(res) {
       $scope.book = res;
     });
+}]); 
+
+booksAppControllers.controller('newController', ['$scope', '$routeParams', '$http',
+  function($scope, $routeParams, $http) {
+      $scope.addBook = function() {
+      $http.post('/books', $scope.book).success(function (res) {
+        $scope.book = "";
+      });
+    };
 }]); 
