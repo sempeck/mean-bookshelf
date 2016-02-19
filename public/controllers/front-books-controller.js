@@ -10,45 +10,47 @@ booksAppControllers.controller('listController', ['$scope', '$http',
 }]);
 
 // SINGLE ////////////////////////////
-booksAppControllers.controller('singleController', ['$scope', '$routeParams', '$http',
-  function($scope, $routeParams, $http) {
+booksAppControllers.controller('singleController', ['$scope', '$routeParams', '$http', '$location',
+  function($scope, $routeParams, $http, $location) {
       $http.get('books/' + $routeParams.id).success(function(res) {
       $scope.book = res;
     });
 
   $scope.deleteBook = function(id) {
       console.log(id);
-      $http.delete('/books/' + id).success(function (res) {
+      $http.delete('/books/' + id).success(function () {
         console.log('Deleting...');
-        $scope.book = "";
-        // powrót do str. głównej
+        // back to books
+      $location.path('/books');
       });
     };
 }]); 
 
 // NEW ////////////////////////////
-booksAppControllers.controller('newController', ['$scope', '$http',
-  function($scope, $http) {
+booksAppControllers.controller('newController', ['$scope', '$http', '$location',
+  function($scope, $http, $location) {
       $scope.addBook = function() {
       $http.post('/books', $scope.book).success(function (res) {
-        $scope.book = "";
-        // powrót do str. książki
+        // back to books
+        $scope.book = res;
+      $location.path('/books/'+$scope.book._id);
+
       });
     };
 }]); 
 
 // EDIT ////////////////////////////
-booksAppControllers.controller('editController', ['$scope', '$routeParams', '$http',
-  function($scope, $routeParams, $http) {
+booksAppControllers.controller('editController', ['$scope', '$routeParams', '$http', '$location',
+  function($scope, $routeParams, $http, $location) {
         $http.get('books/' + $routeParams.id).success(function(res) {
       $scope.book = res;
     });
 
   $scope.updateBook = function() {
-     $http.put('/books/' + $scope.book._id, $scope.book).success(function () {
-        // powrót do str. książki
-
-       // console.log($location.path);
+     $http.put('/books/' + $scope.book._id, $scope.book).success(function (res) {
+        // back to books
+      $scope.book = res;
+      $location.path('/books/'+$scope.book._id);
       });
     };
 

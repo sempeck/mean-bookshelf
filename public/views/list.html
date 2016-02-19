@@ -10,7 +10,7 @@
     </tr>
     <tr ng-repeat="book in booklist | filter:query | orderBy:orderChoice">
       <td>{{book.author}}</td>
-      <td><a href="#/books/{{book._id}}">{{book.title}}</a></td>
+      <td><a href="/books/{{book._id}}">{{book.title}}</a></td>
     </tr>
   </tbody>
 </table>

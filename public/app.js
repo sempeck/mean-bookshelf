@@ -3,8 +3,8 @@ var bookshelfApp = angular.module('bookshelfApp', [
   'booksAppControllers'
 ]);
 
-bookshelfApp.config(['$routeProvider',
-  function($routeProvider) {
+bookshelfApp.config(['$routeProvider', '$locationProvider',
+  function($routeProvider, $locationProvider) {
     $routeProvider.
       when('/books', {
         templateUrl: 'views/list.html',
@@ -25,5 +25,7 @@ bookshelfApp.config(['$routeProvider',
       otherwise({
         redirectTo: '/books'
       });
+
+$locationProvider.html5Mode(true);
 
   }]);
